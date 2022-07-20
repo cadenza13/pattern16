@@ -1,0 +1,180 @@
+body{
+  background-color: rgb(75, 175, 100);
+}
+
+.title{
+  text-align: center;
+  margin: 30px 0;
+}
+
+.title.hidden{
+  display: none;
+}
+
+.title > button{
+  display: block;
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 2;
+  margin: 0 auto 30px;
+  background-color: rgb(200, 50, 120);
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 rgb(150, 30, 80);
+}
+
+.title > .rule{
+  width: 300px;
+  margin: 0 auto;
+  text-align: left;
+  background-color: rgba(10, 10, 10, .5);
+  color: #fff;
+  border-radius: 8px;
+  border: 4px solid #ccc;
+}
+
+.title > .rule > ul{
+  padding: 8px 8px 8px 28px;
+  list-style: disc;
+}
+
+.title > .rule > ul > li{
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.title > .rule > ul > li + li{
+  margin-top: 8px;
+}
+
+.container{
+  position: relative;
+  width: 450px;
+  height: 500px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.container.hidden{
+  display: none;
+}
+
+.container > div > img,
+.container > div > div{
+  width: 60px;
+  height: 90px;
+}
+
+.container > .user > img,
+.container > .dealer > img{
+  transition: transform 1s;
+}
+
+.container > .text{
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+  width: 300px;
+  height: 120px;
+  margin: 0 auto;
+  text-align: left;
+  background-color: rgba(10, 10, 10, .5);
+  border: 4px solid #fff;
+  z-index: 2;
+}
+
+.container > .text.hidden{
+  display: none;
+}
+
+.container > .text > p{
+  font-size: 14px;
+  color: #fff;
+  padding: 4px 4px 0 4px;
+  line-height: 1.5;
+}
+
+.container > .text > button{
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 14px;
+  color: #fff;
+  padding: 4px 8px;
+  background-color: rgb(40, 180, 180);
+}
+
+.container > .text > button.hidden{
+  display: none;
+}
+
+.container > .text > .action-btns{
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  width: 280px;
+  height: 32px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.container > .text > .action-btns.hidden{
+  display: none;
+}
+
+.container > .text > .action-btns > button{
+  width: 100px;
+  font-size: 16px;
+  line-height: 32px;
+  background-color: rgba(70, 30, 200, .7);
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.container > .text > .action-btns > #hit-btn.none{
+  background-color: rgba(150, 150, 150, .7);
+  cursor: default;
+}
+
+@media (max-width:600px) {
+  .title > img{
+    width: 300px;
+    height: 100px;
+  }
+
+  .title > .rule{
+    width: 250px;
+  }
+
+  .title > .rule > ul > li{
+    font-size: 12px;
+  }
+
+  .container{
+    width: 300px;
+    height: 350px;
+  }
+
+  .container > div > img,
+  .container > div > div{
+    width: 40px;
+    height: 60px;
+  }
+
+  .container > .text{
+    top: 150px;
+    width: 280px;
+  }
+
+  .container > .text > .action-btns{
+    width: 260px;
+  }
+}

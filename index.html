@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブラックジャック</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="title">
+    <img src="img/LOGO.png" alt="">
+    <button id="start-btn">GAME START</button>
+
+    <div class="rule">
+      <ul>
+        <li>ディーラー(CPU)と対戦形式のブラックジャックです。</li>
+        <li>基本ルールは公式ルールと同じです。</li>
+        <li>最初の2枚が『A』と『10, J, Q. K』のいずれかなら、ブラックジャックとなります。</li>
+        <li>ブラックジャックが達成すると、その時点で勝敗が決まります。</li>
+        <li>手札の数字が21を越えるとバーストとなります。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container hidden">
+    <div class="dealer">
+      <div></div>
+    </div>
+    <div class="deck">
+      <img id="card" src="img/card-inside.png" alt="">
+    </div>
+    <div class="user">
+      <div></div>
+    </div>
+
+    <div class="text hidden">
+      <p id="text-p"></p>
+      <button id="text-btn" class="hidden">OK</button>
+
+      <div class="action-btns">
+        <button id="hit-btn">ヒット</button>
+        <button id="stand-btn">スタンド</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
