@@ -145,19 +145,6 @@ body{
 }
 
 @media (max-width:600px) {
-  .title > img{
-    width: 300px;
-    height: 100px;
-  }
-
-  .title > .rule{
-    width: 250px;
-  }
-
-  .title > .rule > ul > li{
-    font-size: 12px;
-  }
-
   .container{
     width: 300px;
     height: 350px;

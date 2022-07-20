@@ -227,6 +227,9 @@
 
       this.ids.push(id);
 
+      const preload = document.createElement('img');
+      preload.src = `img/card${id}.png`;
+
       if(player === 'user'){
         user.create(id);
       } else {
