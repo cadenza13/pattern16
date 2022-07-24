@@ -19,7 +19,7 @@
       const x = (cardWidth / 2) * this.cardLength;
       const y = (containerHeight - cardHeight) / 2;
 
-      card.src = 'img/card-inside.png';
+      card.src = `img/card${id}.png`;
       this.field.appendChild(card);
       this.cardLength++;
       this.ids.push(id);
@@ -32,9 +32,21 @@
         card.style.transform = 'none';
       }, 100);
 
+      if(this.cardLength === 2){
+        setTimeout(() =>{
+          if(this.cardLength === 2 && this.numberTotal === 21 || dealer.cardLength === 2 && dealer.numberTotal === 21){
+            dealer.open();
+            return;
+          }
+  
+          this.burstCheck();
+          dealer.burstCheck();
+        }, 2500);
+      }
+
       if(this.cardLength > 2){
         setTimeout(() => {
-          this.open();
+          this.burstCheck();
         }, 2000);
       }
     }
@@ -42,34 +54,7 @@
     numberGet(number){
       this.numbers.push(number);
       this.numberTotal += number;
-    }
-
-    open(){
-      const cards = document.querySelectorAll('.user > img');
-      
-      cards.forEach((card, index) =>{
-        if(card.classList.contains('open')){
-          return;
-        }
-
-        card.classList.add('open');
-        card.style.transform = 'scaleX(0)';
-        
-        setTimeout(() =>{
-          card.src = `img/card${this.ids[index]}.png`;
-          card.style.transform = 'none';
-        }, 1000);
-      });
-
-      setTimeout(() =>{
-        if(this.cardLength === 2 && this.numberTotal === 21 || dealer.cardLength === 2 && dealer.numberTotal === 21){
-          dealer.open();
-          return;
-        }
-
-        this.burstCheck();
-        dealer.burstCheck();
-      }, 3000);
+      console.log(number);
     }
 
     burstCheck(){
@@ -132,6 +117,7 @@
     numberGet(number){
       this.numbers.push(number);
       this.numberTotal += number;
+      console.log(number);
     }
 
     open(){
@@ -390,9 +376,5 @@
     setTimeout(() =>{
       deck.allo('dealer');
     }, 2000);
-  
-    setTimeout(() =>{
-      user.open();
-    }, 4000);
   });
 })();
