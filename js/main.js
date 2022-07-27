@@ -4,6 +4,7 @@
   class User{
     constructor(){
       this.field = document.querySelector('.user');
+      this.clearCard = document.querySelector('.user > div');
       this.ids = [];
       this.numbers = [];
       this.cardLength = 0;
@@ -12,6 +13,10 @@
     }
 
     create(id){
+      if(this.cardLength === 0){
+        this.clearCard.remove();
+      }
+
       const card = document.createElement('img');
       const cardWidth = deck.card.getBoundingClientRect().width;
       const cardHeight = deck.card.getBoundingClientRect().height;
@@ -31,6 +36,12 @@
       setTimeout(() =>{
         card.style.transform = 'none';
       }, 100);
+
+      if(this.cardLength <= 2){
+        setTimeout(() =>{
+          deck.allo('dealer');
+        }, 500);
+      }
 
       if(this.cardLength === 2){
         setTimeout(() =>{
@@ -54,7 +65,6 @@
     numberGet(number){
       this.numbers.push(number);
       this.numberTotal += number;
-      console.log(number);
     }
 
     burstCheck(){
@@ -79,6 +89,7 @@
   class Dealer{
     constructor(){
       this.field = document.querySelector('.dealer');
+      this.clearCard = document.querySelector('.dealer > div');
       this.ids = [];
       this.numbers = [];
       this.cardLength = 0;
@@ -87,6 +98,10 @@
     }
 
     create(id){
+      if(this.cardLength === 0){
+        this.clearCard.remove();
+      }
+
       const card = document.createElement('img');
       const cardWidth = deck.card.getBoundingClientRect().width;
       const cardHeight = deck.card.getBoundingClientRect().height;
@@ -107,6 +122,12 @@
         card.style.transform = 'none';
       }, 100);
 
+      if(this.cardLength < 2){
+        setTimeout(() =>{
+          deck.allo('user');
+        }, 500);
+      }
+
       if(this.cardLength > 2){
         setTimeout(() =>{
           this.burstCheck();
@@ -117,7 +138,6 @@
     numberGet(number){
       this.numbers.push(number);
       this.numberTotal += number;
-      console.log(number);
     }
 
     open(){
@@ -348,8 +368,6 @@
   const title = document.querySelector('.title');
   const startBtn = document.getElementById('start-btn');
   const container = document.querySelector('.container');
-  const userDiv = document.querySelector('.user > div');
-  const dealerDiv = document.querySelector('.dealer > div');
 
   const deck = new Deck();
   const user = new User();
@@ -362,21 +380,7 @@
     container.classList.remove('hidden');
 
     setTimeout(() =>{
-      userDiv.remove();
       deck.allo('user');
     }, 500);
-  
-    setTimeout(() =>{
-      dealerDiv.remove();
-      deck.allo('dealer');
-    }, 1000);
-  
-    setTimeout(() =>{
-      deck.allo('user');
-    }, 1500);
-  
-    setTimeout(() =>{
-      deck.allo('dealer');
-    }, 2000);
   });
 })();
