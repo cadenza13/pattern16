@@ -215,12 +215,14 @@
 
       const preload = document.createElement('img');
       preload.src = `img/card${id}.png`;
-
-      if(player === 'user'){
-        user.create(id);
-      } else {
-        dealer.create(id);
-      }
+      
+      setTimeout(() =>{
+        if(player === 'user'){
+          user.create(id);
+        } else {
+          dealer.create(id);
+        }
+      }, 100);
     }
   }
 
