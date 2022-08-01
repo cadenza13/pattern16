@@ -232,17 +232,12 @@
       }
 
       this.ids.push(id);
-
-      const preload = document.createElement('img');
-      preload.src = `img/card${id}.png`;
       
-      setTimeout(() =>{
-        if(player === 'user'){
-          user.create(id);
-        } else {
-          dealer.create(id);
-        }
-      }, 100);
+      if(player === 'user'){
+        user.create(id);
+      } else {
+        dealer.create(id);
+      }
     }
   }
 
@@ -374,6 +369,11 @@
   const dealer = new Dealer();
   const internal = new Internal();
   const other = new Other();
+
+  for(let i = 0; i < 52; i++){
+    const preload = document.createElement('img');
+    preload.src = `img/card${i}.png`;
+  }
 
   startBtn.addEventListener('click', () =>{
     title.classList.add('hidden');
